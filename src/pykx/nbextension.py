@@ -146,5 +146,11 @@ def q(instructions, code): # noqa
         _q.close()
 
 
+def q_line(code):
+    print(code)
+    return q("", code + "\n")
+
+
 def load_ipython_extension(ipython):
-    ipython.register_magic_function(q, 'cell')
+    ipython.register_magic_function(q, "cell")
+    ipython.register_magic_function(q_line, "line", "q")
